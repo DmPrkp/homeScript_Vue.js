@@ -1,0 +1,33 @@
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css">
+    <!--Задаёт ширину по ширине устройства -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>    
+    <div id="app">
+        <header>
+            <h1>{{sitename}}</h1>
+        </header>
+        <main>
+            <div>
+                <div>
+                    <figure>
+                        <img :src="product.url">
+                    </figure>
+                </div>
+            </div>
+            <h1 v-text="product.title"></h1>
+            <p v-html="product.description"></p>
+            <p>Автор: {{product.author}}</p>
+            <p>Издетельство: {{product.publishing}}</p>
+            <p>Стоимость: {{product.price | formatPrice}}</p>
+        </main>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>
