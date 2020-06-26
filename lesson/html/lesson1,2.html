@@ -2,33 +2,31 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
   <!--Задаёт ширину по ширине устройства -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
 </head>
 
 <body>
   <div id="app">
-    <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <div class="display-inline" id="navbarColor01">
-        <button type="button" class="btn btn-dark" id="" @click="visible1=!visible1">Lesson1</button>
-        <button type="button" class="btn btn-dark" id="">Lesson3</button>
-      </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary" id="lesson2_task2">
+      <a class="navbar-brand" href="#">Cafe racer club</a>
+      <ul class="nav">
+        <li class="nav-item active ml-2">
+          <button type="button" class="btn btn-dark" id="" @click="visible1 = !visible1">Lesson2</button>
+        </li>        
     </nav>
-    <div class="display-inline bg-primary p-1 pl-5" v-if='visible1' id="navbarColor01">
-      <button type="button" class="btn btn-dark" id="task1btn" @click="visible1_1=!visible1_1, visible1_2=!visible1_2">
-        task1
-      </button>
-      <button type="button" class="btn btn-dark" id="task2btn"
-        @click="visible1_2=!visible1_2, visible1_1=!visible1_1">task2</button>
+    <div class="display-inline bg-primary pl-5" v-if='visible1' id="">
+      <button type="button" class="btn btn-dark my-2 ml-5" id="" @click="upload_Task1">task1</button>
+      <button type="button" class="btn btn-dark my-2" id="" @click="upload_Task2">task2</button>
     </div>
-    <main id="Task1" class="" v-if="visible1_1">
-      <header class=" text-center bg-dark py-3 shadow ">
-        <h2 class="mx-auto d-block font-weight-bold text-primary" v-html="sitename.toUpperCase()"></h2>
-      </header>
+    <header class="text-center bg-dark py-3 shadow">
+      <h2 class="mx-auto d-block font-weight-bold text-primary" v-html="sitename.toUpperCase()"></h2>
+    </header>
+
+    <main id="lesson1_task1" class="" v-if="visible1_1">
       <div class="container mt-5">
         <h3 v-text="classMoto" class="ml-n5"></h3>
         <div class="row">
@@ -38,21 +36,23 @@
           <div class="col-8">
             <h3 v-text="product1.title"></h3>
             <p v-html="product1.description"></p>
-            <p>База: {{product1.base}}</p>
+            <p><b>База:</b> {{product1.base}}</p>
             <p>Стоимость: {{product1.price | formatPrice}}</p>
           </div>
         </div>
+        <hr>
         <div class="row">
           <div class="col-8">
             <h3 v-text="product2.title"></h3>
             <p v-html="product2.description"></p>
-            <p>База: {{product2.base}}</p>
+            <p><b>База:</b> {{product2.base}}</p>
             <p>Стоимость: {{product2.price | formatPrice}}</p>
           </div>
           <figure class="col-4 col-lg-3">
             <img class="img-thumbnail rounded float-right mt-5 shadow" :src="product2.src" alt="" />
           </figure>
         </div>
+        <hr>
         <div class="row">
           <figure class="col-4 col-lg-3">
             <img class="img-thumbnail rounded float-right mt-5 shadow" :src="product3.src" alt="" />
@@ -60,15 +60,16 @@
           <div class="col-8">
             <h3 v-text="product3.title"></h3>
             <p v-html="product3.description"></p>
-            <p>База: {{product3.base}}</p>
+            <p><b>База:</b> {{product3.base}}</p>
             <p>Стоимость: {{product3.price | formatPrice}}</p>
           </div>
         </div>
+        <hr>
       </div>
-
     </main>
-    <main id="Task2" v-if="visible1_2">
-      <header class="bg-dark py-3 shadow">
+
+    <main id="lesson1_task2" v-if="visible1_2">
+      <header class="text-center bg-dark py-3 shadow">
         <h3 class="ml-5 d-block font-weight-bold text-primary">Hi, {{profile_data.name}}!</h3>
       </header>
       <div class="container">
@@ -81,21 +82,17 @@
             <p>Email: <a :href="profile_data.mail_link">{{profile_data.mail}}</a></p>
             <p>Site: <a :href="profile_data.link">{{profile_data.vkGroup}}</a></p>
             <p>Bike: {{profile_data.bike}}</p>
-            <img class="img-thumbnail rounded float-right" :src="profile_data.bike_img" alt="" />
-            <p>Bike story: {{profile_data.bike_story}}</p>
+            <hr>
+            <img class="img-thumbnail rounded float-right m-1" :src="profile_data.bike_img" alt="" />
+            <b> Bike story: </b>
+            <p v-html="profile_data.bike_story"></p>
           </div>
         </div>
       </div>
-
-
     </main>
   </div>
-  <footer class='py-5 bg-primary'>
 
-  </footer>
-
-  <script src="js/lesson1.js"></script>
-  <script src="js/lesson2.js"></script>
+  <script src="../js/homescriptLesson1-2.js"></script>
 </body>
 
 </html>
