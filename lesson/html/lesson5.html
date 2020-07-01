@@ -1,0 +1,36 @@
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <script src='../js/motors.js'></script>
+</head>
+
+<body>
+  <div id="components-demo">
+    <button-counter></button-counter>
+  </div>
+
+<!--<div id="blog-post-demo">
+    <blog-post v-for="post in posts" :key='post.id' :post='post'>
+    </blog-post>
+  </div>--> 
+
+  <div id="blog-posts-events-demo">
+    <div :style="{ fontSize: postFontSize + 'em' }">
+      <blog-post  v-for="post in posts" 
+                  v-bind:key='post.id' 
+                  :post='post'
+                  v-on:enlarge-text="postFontSize += $event">
+                  Кнопка ниже?
+      </blog-post>
+    </div>
+  </div>
+
+  <script src="../js/homescriptLesson5.js"></script>
+</body>
+
+</html>

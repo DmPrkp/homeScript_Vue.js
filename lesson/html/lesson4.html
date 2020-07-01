@@ -1,0 +1,69 @@
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../css/style.css">  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <link rel="stylesheet" href="../css/bootstrap.min.css"> 
+  <script src='../js/motors.js'></script>
+</head>
+
+<body>
+  <div id="app">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary" id="lesson2_task2">
+      <a class="navbar-brand" href="#">Cafe racer club</a>      
+    </nav>
+    <header class="text-center bg-dark py-3 shadow">
+      <h2 class="mx-auto d-block font-weight-bold text-primary" v-html="sitename.toUpperCase()"></h2>
+    </header>
+
+    <main id="lesson4_task1" class="container mt-5">      
+      <div>
+        <table class="table table-hover">
+          <tbody>
+            <tr v-for="(th, index) in services">
+              <td>{{index+1}}.</td>
+              <td><input type="checkbox" :value="th" v-bind:id="index" v-model="checkedNames"></td>
+              <td>{{th.name}}</td>
+              <td>{{th.price}}</td>
+              <td><input type="number" min="1" style="width: 50px;" v-model="th.quantity"></td>
+              <td>{{th.price*th.quantity}}</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td colspan="3">Стоимость выбранных работ: {{summQuantity}}</td>
+            </tr>            
+          </tbody>
+        </table>        
+      </div>
+    </main>    
+
+    <main id="lesson4_task2" class="container mt-5">
+      <div class="btn-group mb-5">
+        <button class="btn btn-primary" @click="change1">1</button>
+        <button class="btn btn-primary" @click="change2">2</button>
+        <button class="btn btn-primary" @click="change3">3</button>
+      </div>  
+      <div class="row">
+        <figure class="" v-bind:class="classObj" v-for="moto in cafeMotos">
+          <h5>{{moto.brand}} {{moto.model}}</h5>
+          <a :href="moto.url">
+            <img class="img-thumbnail shadow" :src="moto.img" alt="" />
+          </a>
+        </figure>
+      </div>
+    </main>
+
+    <footer class='mt-5 py-2 bg-primary text-center'>
+      <div id="lesson3_task2">
+        <p @click="changeP" v-if="visible3_2p" style="cursor: pointer;"> <b>{{nameP}}</b> </p>
+        <input type="text" v-else v-model="nameP" v-on:blur="changeI">
+      </div>
+    </footer>
+  </div>
+
+  <script src="../js/homescriptLesson4.js"></script>
+</body>
+
+</html>
