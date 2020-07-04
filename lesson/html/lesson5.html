@@ -10,25 +10,21 @@
 </head>
 
 <body>
-  <div id="components-demo">
-    <button-counter></button-counter>
+  <div id="app">
+    <nav class="navbar navbar-light bg-primary mb-5">
+        <ul class="nav">
+          <li v-for="tab in tabs" :key="tab" :class='["nav-item", {active: currentTab === tab}]'
+            @click="currentTab = tab">
+            <a class="nav-link">{{tab}}</a>
+          </li>
+        </ul>     
+    </nav>
+
+    <component v-bind:is="currentTabComponent" :cafemotors="cafeMotos" :remove="removeGlobal" :add="addMotor"></component>
+    
   </div>
 
-<!--<div id="blog-post-demo">
-    <blog-post v-for="post in posts" :key='post.id' :post='post'>
-    </blog-post>
-  </div>--> 
 
-  <div id="blog-posts-events-demo">
-    <div :style="{ fontSize: postFontSize + 'em' }">
-      <blog-post  v-for="post in posts" 
-                  v-bind:key='post.id' 
-                  :post='post'
-                  v-on:enlarge-text="postFontSize += $event">
-                  Кнопка ниже?
-      </blog-post>
-    </div>
-  </div>
 
   <script src="../js/homescriptLesson5.js"></script>
 </body>

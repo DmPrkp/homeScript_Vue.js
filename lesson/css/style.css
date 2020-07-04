@@ -2,6 +2,14 @@ main {
 	min-height: 50%;
 }
 
-.active {
-	color: green;
+.active {	
+	box-shadow: inset 0px 0px 7px 1px;
+}
+
+.easyIn {
+	transition: transform 1s
+}
+
+img {
+	cursor: pointer;
 }
